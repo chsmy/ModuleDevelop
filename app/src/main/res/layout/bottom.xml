@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@color/white"
+    android:layout_gravity="bottom"
+    android:orientation="horizontal" >
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/tabbar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/tab_first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@mipmap/tab_home_icon"
+            android:text="@string/home"
+            />
+        <RadioButton
+            android:id="@+id/tab_second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@mipmap/tab_move_icon"
+            android:text="@string/notice"
+            />
+        <RadioButton
+            android:id="@+id/tab_third"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@mipmap/tab_found_icon"
+            android:gravity="center"
+            android:text="@string/apply"
+            />
+        <RadioButton
+            android:id="@+id/tab_four"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@mipmap/tab_me_icon"
+            android:text="@string/mine"
+            />
+    </RadioGroup>
+
+</LinearLayout>
