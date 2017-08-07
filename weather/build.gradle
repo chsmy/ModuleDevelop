@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILDTOOLS_VERSION
@@ -11,7 +11,7 @@ android {
         versionName "1.0"
         //所有资源必须以此 prefix 开头，否则会报错
         resourcePrefix "weather_"
-
+        //用到ARouter中都要加下面的一段
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [ moduleName : project.getName() ]
@@ -29,5 +29,6 @@ android {
 
 dependencies {
     compile project(':library')
+    annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERDION}"
     annotationProcessor "com.alibaba:arouter-compiler:${A_ROUTER_COMPILER}"
 }
