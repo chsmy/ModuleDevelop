@@ -139,12 +139,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         long currentTime = System.currentTimeMillis();
         if ((currentTime - touchTime) >= DOUBLE_CLICK_INTERVAL) {
             Toast.makeText(getApplicationContext(), R.string.double_click_back, Toast.LENGTH_SHORT).show();
             touchTime = currentTime;
         } else {
+            super.onBackPressed();
             Process.killProcess(Process.myPid());
             System.exit(0);
         }

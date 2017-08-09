@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chs.library.base.BaseActivity;
 import com.chs.library.http.RetrofitManager;
 import com.chs.library.util.LogUtils;
-import com.chs.library.util.statusbar.ImmersionBar;
+import com.chs.library.util.StatusBarUtil;
 import com.chs.weather.module.WeatherEntity;
 import com.chs.weather.net.GetServiceData;
 
@@ -32,9 +32,7 @@ public class WeatherActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_activity_weather);
         ButterKnife.bind(this);
-        ImmersionBar.with(this)
-                .transparentBar()
-                .init();
+        StatusBarUtil.setTransparent(this);
         RetrofitManager.getInstance().initRetrofit(baseUrl);
         createLoadingDialog(this, getString(R.string.loading));
         Observable<WeatherEntity> weather = RetrofitManager.getInstance().createReq(GetServiceData.class).getWeather(101010100);

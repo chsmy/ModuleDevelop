@@ -1,6 +1,5 @@
 package com.chs.library.base;
 
-import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -8,8 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,8 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BaseApplication.getInstance().addActivity(this);
-//        TranslucentBarManager translucentBarManager = new TranslucentBarManager(this);
-//        translucentBarManager.translucent(this);
+
     }
 
     @Override
@@ -41,22 +37,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         BaseApplication.getInstance().finishActivity(this);
     }
 
-    @TargetApi(19)
-    private void setTranslucentStatus(boolean on) {
-        Window win = getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
-    }
     //rxjava 网络请求
     protected  <T> void toSubscribe(Observable<T> o, Observer<T> observer){
                 o.subscribeOn(Schedulers.io())//指定Observable
-//                .unsubscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())//指定observer
                 .subscribe(observer);
     }
