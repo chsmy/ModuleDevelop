@@ -12,11 +12,6 @@ import android.widget.TextView;
 
 import com.chs.library.R;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
 /**
  * 作者：chs on 2017-08-03 14:02
  * 邮箱：657083984@qq.com
@@ -35,14 +30,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         BaseApplication.getInstance().finishActivity(this);
-    }
-
-    //rxjava 网络请求
-    protected  <T> void toSubscribe(Observable<T> o, Observer<T> observer){
-                o.subscribeOn(Schedulers.io())//指定Observable
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())//指定observer
-                .subscribe(observer);
     }
     /**
      * 得到自定义的progressDialog

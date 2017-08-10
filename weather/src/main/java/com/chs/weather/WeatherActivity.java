@@ -5,15 +5,13 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chs.library.base.BaseActivity;
-import com.chs.library.http.RetrofitManager;
 import com.chs.library.util.LogUtils;
 import com.chs.library.util.StatusBarUtil;
 import com.chs.weather.module.WeatherEntity;
-import com.chs.weather.net.GetServiceData;
+import com.chs.weather.net.WeatherDataManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -25,7 +23,6 @@ public class WeatherActivity extends BaseActivity {
     TextView mWeatherTvTemperature;
     @BindView(R2.id.weather_tv_temperature_del)
     TextView mWeatherTvTemperatureDel;
-    private String baseUrl = "http://aider.meizu.com/app/weather/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +30,11 @@ public class WeatherActivity extends BaseActivity {
         setContentView(R.layout.weather_activity_weather);
         ButterKnife.bind(this);
         StatusBarUtil.setTransparent(this);
-        RetrofitManager.getInstance().initRetrofit(baseUrl);
         createLoadingDialog(this, getString(R.string.loading));
-        Observable<WeatherEntity> weather = RetrofitManager.getInstance().createReq(GetServiceData.class).getWeather(101010100);
-        toSubscribe(weather, new Observer<WeatherEntity>() {
+        WeatherDataManager.getInstance().getWeather(new Observer<WeatherEntity>() {
             @Override
             public void onSubscribe(Disposable d) {
-                LogUtils.i("weatherEntity", "onSubscribe");
+
             }
 
             @Override
@@ -60,6 +55,6 @@ public class WeatherActivity extends BaseActivity {
                 finishDialog();
                 LogUtils.i("weatherEntity", "onComplete");
             }
-        });
+        }, 101010100);
     }
 }

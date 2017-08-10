@@ -5,4 +5,6 @@
     <string name="apply">应用</string>
     <string name="mine">我的</string>
     <string name="double_click_back">再按一次返回桌面</string>
+
+    <string name="home_edittext_hint">请输入关键字</string>
 </resources>
