@@ -2,6 +2,7 @@ package com.chs.moduledevelop.net;
 
 import com.chs.library.http.RetrofitManager;
 import com.chs.moduledevelop.first.HeatMovieEntity;
+import com.chs.moduledevelop.second.BookEntity;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -76,5 +77,9 @@ public class DataManager {
         return observable;
     }
 
-
+    public void getBookList(Observer<BookEntity> observer,String searchName,int start,int count){
+        Observable<BookEntity> observable = RetrofitManager.getInstance().createReq(GetServiceData.class).getBookList(searchName,
+                "id,title,images,author,pubdate,publisher,url,alt",start,count);
+        toSubscribe(observable, observer);
+    }
 }

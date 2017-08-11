@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 /**
  * 作者：chs on 2017-08-10 16:42
@@ -31,7 +32,10 @@ public class ImageLoader {
 
     //加载指定大小
     public static void loadImageViewSize(Context mContext, String path, int width, int height, ImageView mImageView) {
-//        Glide.with(mContext).load(path).override(width, height).into(mImageView);
+        RequestOptions options = new RequestOptions()
+                .fitCenter()
+                .override(width, height);;
+        Glide.with(mContext).load(path).apply(new RequestOptions()).into(mImageView);
     }
 
     //设置加载中以及加载失败图片

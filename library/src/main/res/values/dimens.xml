@@ -10,6 +10,9 @@
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_5">5dp</dimen>
     <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
     <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
     <dimen name="dp_72">72dp</dimen>
+    <dimen name="dp_80">80dp</dimen>
 </resources>

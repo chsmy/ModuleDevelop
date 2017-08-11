@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.chs.library.base.BaseActivity;
 import com.chs.moduledevelop.first.FirstFragment;
+import com.chs.moduledevelop.second.SecondFragment;
 
 import java.util.ArrayList;
 import java.util.List;

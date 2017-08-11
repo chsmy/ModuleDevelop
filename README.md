@@ -20,3 +20,5 @@ ARouter https://github.com/alibaba/ARouter
 adapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper
 
 图片缓存 https://github.com/bumptech/glide
+
+下拉刷新 https://github.com/scwang90/SmartRefreshLayout
