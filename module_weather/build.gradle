@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    compile project(':library')
+    compile project(':module_library')
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERDION}"
     annotationProcessor "com.alibaba:arouter-compiler:${A_ROUTER_COMPILER}"
 }
