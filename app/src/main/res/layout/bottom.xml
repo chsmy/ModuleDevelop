@@ -31,7 +31,7 @@
             android:button="@null"
             android:gravity="center"
             android:drawableTop="@mipmap/tab_move_icon"
-            android:text="@string/notice"
+            android:text="@string/books"
             />
         <RadioButton
             android:id="@+id/tab_third"

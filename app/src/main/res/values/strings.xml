@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ModuleDevelop</string>
     <string name="home">首页</string>
-    <string name="notice">消息</string>
+    <string name="books">书籍</string>
     <string name="apply">应用</string>
     <string name="mine">我的</string>
     <string name="double_click_back">再按一次返回桌面</string>
