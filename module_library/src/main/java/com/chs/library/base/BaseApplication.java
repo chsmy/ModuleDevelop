@@ -2,6 +2,8 @@ package com.chs.library.base;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
+import android.util.DisplayMetrics;
 
 import java.util.Stack;
 
@@ -16,10 +18,12 @@ public class BaseApplication extends Application {
     public static BaseApplication getInstance(){
         return instance;
     }
+    public static int H,W;
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
+        getScreen(this);
     }
     /**
      * 添加指定Activity到堆栈
@@ -77,5 +81,9 @@ public class BaseApplication extends Application {
         }
         activityStack.clear();
     }
-
+    public void getScreen(Context aty) {
+        DisplayMetrics dm = aty.getResources().getDisplayMetrics();
+        H=dm.heightPixels;
+        W=dm.widthPixels;
+    }
 }

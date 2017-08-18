@@ -1,5 +1,6 @@
 package com.chs.moduledevelop.net;
 
+import com.chs.moduledevelop.first.BannerEntity;
 import com.chs.moduledevelop.first.HeatMovieEntity;
 import com.chs.moduledevelop.second.BookEntity;
 
@@ -23,5 +24,7 @@ public interface GetServiceData {
     @GET("book/search")
     Observable<BookEntity> getBookList(@Query("q") String searchName, @Query("fields") String searchFiles,
                                        @Query("start") int start, @Query("count") int count);
-
+    //获取轮播图
+    @GET("/static/pages/news/phone/c13_list_1.shtml")
+    Observable<BannerEntity> getBanner(@Query("plat") String platform, @Query("version") int version);
 }

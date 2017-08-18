@@ -31,7 +31,7 @@ public class RetrofitManager {
     }
     private Retrofit mRetrofit;
     //正常情况一个项目中的baseUrl是一样的可以写死一个常量，这里因为到处找的免费API接口 所以baseUrl动态传入
-    public void initRetrofit(String baseUrl) {
+    public RetrofitManager initRetrofit(String baseUrl) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(110, TimeUnit.SECONDS);
         builder.readTimeout(20, TimeUnit.SECONDS);
@@ -52,6 +52,7 @@ public class RetrofitManager {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .build();
+        return this;
     }
 
     public <T> T createReq(Class<T> service){

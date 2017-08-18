@@ -1,6 +1,6 @@
 # ModuleDevelop
 Android组件化开发练习demo
-使用的api 豆瓣 魅族天气
+使用的api 豆瓣 魅族天气 banner使用腾讯http://qt.qq.com
 感谢项目中用到的开源api 如有侵权请联系删除
 
 使用的开源库
@@ -22,3 +22,5 @@ adapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper
 图片缓存 https://github.com/bumptech/glide
 
 下拉刷新 https://github.com/scwang90/SmartRefreshLayout
+
+轮播图 https://github.com/youth5201314/banner

@@ -25,8 +25,11 @@ android {
 }
 
 dependencies {
-    compile project(':module_library')
-    compile project(':module_weather')
+    if(isDebug.toBoolean()){
+        compile project(':module_library')
+    }else {
+        compile project(':module_weather')
+    }
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERDION}"
     annotationProcessor "com.alibaba:arouter-compiler:${A_ROUTER_COMPILER}"
 }
