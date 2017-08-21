@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.chs.library.base.BaseActivity;
+import com.chs.library.util.StatusBarUtil;
 import com.chs.moduledevelop.first.FirstFragment;
 import com.chs.moduledevelop.second.SecondFragment;
 
@@ -19,7 +20,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements FirstFragment.OffsetViewListener {
     private Fragment mTab01;
     private Fragment mTab02;
     private Fragment mTab03;
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        StatusBarUtil.setTransparentForImageViewInFragment(this,null);
         initView();
         setSelect(0);
     }
@@ -71,7 +73,7 @@ public class MainActivity extends BaseActivity {
         switch (i) {
             case 0:
                 if (mTab01 == null) {
-                    mTab01 = FirstFragment.newInstance();
+                    mTab01 = FirstFragment.newInstance(this);
                     transaction.add(R.id.id_content, mTab01);
                 } else {
                     transaction.show(mTab01);
@@ -150,5 +152,10 @@ public class MainActivity extends BaseActivity {
             Process.killProcess(Process.myPid());
             System.exit(0);
         }
+    }
+
+    @Override
+    public void offset(View view) {
+        StatusBarUtil.setTransparentForImageViewInFragment(this,view);
     }
 }

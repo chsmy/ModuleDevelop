@@ -4,15 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.Toast;
 
 import com.chs.library.base.BaseFragment;
 import com.chs.library.base.adapter.BaseQuickAdapter;
-import com.chs.moduledevelop.App;
 import com.chs.moduledevelop.R;
 import com.chs.moduledevelop.net.DataManager;
 import com.youth.banner.Banner;
@@ -29,8 +28,6 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function3;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.chs.moduledevelop.R.layout.header;
-
 /**
  * 作者：chs on 2017-08-03 15:42
  * 邮箱：657083984@qq.com
@@ -40,8 +37,18 @@ public class FirstFragment extends BaseFragment {
     @BindView(R.id.recyclerview)
     RecyclerView mRecyclerView;
     Unbinder unbinder;
+    @BindView(R.id.home_banner)
+    Banner mHomeBanner;
+    private static OffsetViewListener mOffsetViewListener;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
-    public static FirstFragment newInstance() {
+    public interface OffsetViewListener {
+        void offset(View view);
+    }
+
+    public static FirstFragment newInstance(OffsetViewListener offsetView) {
+        mOffsetViewListener = offsetView;
         return new FirstFragment();
     }
 
@@ -50,6 +57,9 @@ public class FirstFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, null);
         unbinder = ButterKnife.bind(this, view);
+        if(mOffsetViewListener!=null){
+            mOffsetViewListener.offset(mToolbar);
+        }
         initData();
         initView();
         initEvent();
@@ -82,7 +92,7 @@ public class FirstFragment extends BaseFragment {
                             sections.add(new MovieSection(s));
                         }
                         List<String> banner = new ArrayList<String>();
-                        for (BannerEntity.ListEntity e: bannerEntity.getList()) {
+                        for (BannerEntity.ListEntity e : bannerEntity.getList()) {
                             banner.add(e.getImage_url_big());
                         }
                         entity.setBanners(banner);
@@ -119,13 +129,13 @@ public class FirstFragment extends BaseFragment {
                 Toast.makeText(getContext(), "onItemChildClick" + position, Toast.LENGTH_LONG).show();
             }
         });
-        View bannerView = LayoutInflater.from(getActivity()).inflate(header, null);
-        bannerView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, App.H / 4));
-        Banner banner = (Banner) bannerView.findViewById(R.id.banner);
-        banner.setImages(entity.getBanners())
-                        .setImageLoader(new BannerLoader())
-                        .start();
-        sectionAdapter.addHeaderView(bannerView);
+//        View bannerView = LayoutInflater.from(getActivity()).inflate(header, null);
+//        bannerView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, App.H / 4));
+//        Banner banner = (Banner) bannerView.findViewById(R.id.banner);
+        mHomeBanner.setImages(entity.getBanners())
+                .setImageLoader(new BannerLoader())
+                .start();
+//        sectionAdapter.addHeaderView(bannerView);
         mRecyclerView.setAdapter(sectionAdapter);
     }
 
