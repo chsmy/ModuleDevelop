@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.chs.library.base.BaseFragment;
 import com.chs.library.base.adapter.BaseQuickAdapter;
+import com.chs.library.util.StatusBarUtil;
 import com.chs.moduledevelop.R;
 import com.chs.moduledevelop.net.DataManager;
 import com.youth.banner.Banner;
@@ -39,16 +40,10 @@ public class FirstFragment extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.home_banner)
     Banner mHomeBanner;
-    private static OffsetViewListener mOffsetViewListener;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
-    public interface OffsetViewListener {
-        void offset(View view);
-    }
-
-    public static FirstFragment newInstance(OffsetViewListener offsetView) {
-        mOffsetViewListener = offsetView;
+    public static FirstFragment newInstance() {
         return new FirstFragment();
     }
 
@@ -57,9 +52,7 @@ public class FirstFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, null);
         unbinder = ButterKnife.bind(this, view);
-        if(mOffsetViewListener!=null){
-            mOffsetViewListener.offset(mToolbar);
-        }
+        StatusBarUtil.setTransparentForImageViewInFragment(getActivity(),mToolbar);
         initData();
         initView();
         initEvent();

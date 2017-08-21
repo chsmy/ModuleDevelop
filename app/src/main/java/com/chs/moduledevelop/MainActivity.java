@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements FirstFragment.OffsetViewListener {
+public class MainActivity extends BaseActivity {
     private Fragment mTab01;
     private Fragment mTab02;
     private Fragment mTab03;
@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity implements FirstFragment.OffsetVi
         switch (i) {
             case 0:
                 if (mTab01 == null) {
-                    mTab01 = FirstFragment.newInstance(this);
+                    mTab01 = FirstFragment.newInstance();
                     transaction.add(R.id.id_content, mTab01);
                 } else {
                     transaction.show(mTab01);
@@ -154,8 +154,4 @@ public class MainActivity extends BaseActivity implements FirstFragment.OffsetVi
         }
     }
 
-    @Override
-    public void offset(View view) {
-        StatusBarUtil.setTransparentForImageViewInFragment(this,view);
-    }
 }

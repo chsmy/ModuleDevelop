@@ -4,7 +4,7 @@
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_16">16sp</dimen>
     <dimen name="sp_45">45sp</dimen>
-
+    <dimen name="statusbar_view_height">0dp</dimen>
 
     <dimen name="common_margin">10sp</dimen>
     <dimen name="dp_4">4dp</dimen>
