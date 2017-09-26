@@ -17,7 +17,6 @@ import com.chs.moduledevelop.second.SecondFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
@@ -30,22 +29,21 @@ public class MainActivity extends BaseActivity {
     private static final long DOUBLE_CLICK_INTERVAL = 2 * 1000;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        StatusBarUtil.setTransparentForImageViewInFragment(this,null);
-        initView();
-        setSelect(0);
+    public int getLayoutId() {
+        return R.layout.activity_main;
     }
 
-    private void initView() {
+    @Override
+    public void initViews(Bundle savedInstanceState) {
+        StatusBarUtil.setTransparentForImageViewInFragment(this,null);
         mTabs = new ArrayList<>();
         mTabs.add((RadioButton) findViewById(R.id.tab_first));
         mTabs.add((RadioButton) findViewById(R.id.tab_second));
         mTabs.add((RadioButton) findViewById(R.id.tab_third));
         mTabs.add((RadioButton) findViewById(R.id.tab_four));
+        setSelect(0);
     }
+
     @OnClick({R.id.tab_first, R.id.tab_second, R.id.tab_third, R.id.tab_four})
     public void onViewClicked(View view) {
         resetImgs();

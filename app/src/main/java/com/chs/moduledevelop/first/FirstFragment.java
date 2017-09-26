@@ -1,13 +1,10 @@
 package com.chs.moduledevelop.first;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chs.library.base.BaseFragment;
@@ -21,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -47,29 +43,22 @@ public class FirstFragment extends BaseFragment {
         return new FirstFragment();
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_first, null);
-        unbinder = ButterKnife.bind(this, view);
-        StatusBarUtil.setTransparentForImageViewInFragment(getActivity(),mToolbar);
-        initData();
-        initView();
-        initEvent();
-        return view;
+    public int getLayoutResId() {
+        return R.layout.fragment_first;
     }
 
-    private void initEvent() {
-
-    }
-
-    private void initView() {
+    @Override
+    public void finishCreateView(Bundle state) {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
         mRecyclerView.setLayoutManager(layoutManager);
+        StatusBarUtil.setTransparentForImageViewInFragment(getActivity(),mToolbar);
+        loadData(true);
     }
 
-    private void initData() {
-        createLoadingDialog(getContext(), getString(R.string.loading));
+    @Override
+    protected void loadData(boolean isShowLoading) {
+        super.loadData(isShowLoading);
         Observable.zip(DataManager.getInstance().getHeatMovieObservable(0, 6), DataManager.getInstance().getComingMovieObservable(0, 6)
                 , DataManager.getInstance().getBannerListObservable(), new Function3<HeatMovieEntity, HeatMovieEntity, BannerEntity, FirstPageEntity>() {
                     @Override
@@ -130,11 +119,5 @@ public class FirstFragment extends BaseFragment {
                 .start();
 //        sectionAdapter.addHeaderView(bannerView);
         mRecyclerView.setAdapter(sectionAdapter);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }

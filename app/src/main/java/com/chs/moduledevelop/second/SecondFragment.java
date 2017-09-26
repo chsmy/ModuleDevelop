@@ -1,15 +1,11 @@
 package com.chs.moduledevelop.second;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.chs.library.base.BaseFragment;
 import com.chs.moduledevelop.R;
@@ -18,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
@@ -38,14 +33,18 @@ public class SecondFragment extends BaseFragment {
         return new SecondFragment();
     }
     private ContentAdapter mAdapter;
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_second, null);
-        unbinder = ButterKnife.bind(this, view);
+    public int getLayoutResId() {
+        return R.layout.fragment_second;
+    }
+
+    @Override
+    public void finishCreateView(Bundle state) {
         initFragment();
-        initView();
-        return view;
+        mAdapter = new ContentAdapter(getChildFragmentManager());
+        mViewpager.setAdapter(mAdapter);
+        mTab.setupWithViewPager(mViewpager);
     }
 
     private void initFragment() {
@@ -56,12 +55,6 @@ public class SecondFragment extends BaseFragment {
             bundle.putString("searchName", mTitle);
             mFragmentList.add(MovieFragment.newInstance(bundle));
         }
-    }
-
-    private void initView() {
-        mAdapter = new ContentAdapter(getChildFragmentManager());
-        mViewpager.setAdapter(mAdapter);
-        mTab.setupWithViewPager(mViewpager);
     }
 
     @Override

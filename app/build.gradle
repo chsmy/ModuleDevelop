@@ -25,10 +25,11 @@ android {
 }
 
 dependencies {
-    if(isDebug.toBoolean()){
+    if (isDebug.toBoolean()) {
         compile project(':module_library')
-    }else {
+    } else {
         compile project(':module_weather')
+        compile project(':module_zhihu')
     }
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERDION}"
     annotationProcessor "com.alibaba:arouter-compiler:${A_ROUTER_COMPILER}"

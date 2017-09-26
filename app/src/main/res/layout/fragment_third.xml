@@ -12,7 +12,12 @@
         android:id="@+id/weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="weather"
-        android:text="go天气"
+        android:text="天气模块"
+        />
+    <Button
+        android:id="@+id/zhihu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="知乎模块"
         />
 </LinearLayout>

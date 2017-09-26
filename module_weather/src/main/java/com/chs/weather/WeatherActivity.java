@@ -11,7 +11,6 @@ import com.chs.weather.module.WeatherEntity;
 import com.chs.weather.net.WeatherDataManager;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -27,10 +26,8 @@ public class WeatherActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weather_activity_weather);
-        ButterKnife.bind(this);
         StatusBarUtil.setTransparent(this);
-        createLoadingDialog(this, getString(R.string.loading));
+        createLoadingDialog(getString(R.string.loading));
         WeatherDataManager.getInstance().getWeather(new Observer<WeatherEntity>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -56,5 +53,15 @@ public class WeatherActivity extends BaseActivity {
                 LogUtils.i("weatherEntity", "onComplete");
             }
         }, 101010100);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.weather_activity_weather;
+    }
+
+    @Override
+    public void initViews(Bundle savedInstanceState) {
+
     }
 }
