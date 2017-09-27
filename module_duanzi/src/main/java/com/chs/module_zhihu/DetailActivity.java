@@ -19,7 +19,7 @@ public class DetailActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.zhihu_content;
+        return R.layout.duanzi_content;
     }
 
     @Override

@@ -28,7 +28,7 @@ public class DuanZiHuActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.zhihu_home;
+        return R.layout.duanzi_home;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class DuanZiHuActivity extends BaseActivity {
 
             @Override
             public void onNext(final DuanZiListEntity entity) {
-                DuanZiListAdapter adapter = new DuanZiListAdapter(R.layout.zhihu_item_list,entity.getData().getData());
+                DuanZiListAdapter adapter = new DuanZiListAdapter(R.layout.duanzi_item_list,entity.getData().getData());
                 mRecyclerView.setAdapter(adapter);
             }
 
