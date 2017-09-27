@@ -27,7 +27,22 @@ public class WeatherActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtil.setTransparent(this);
-        createLoadingDialog(getString(R.string.loading));
+        loadData(true);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.weather_activity_weather;
+    }
+
+    @Override
+    public void initViews(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected void loadData(boolean isShowLoading) {
+        super.loadData(isShowLoading);
         WeatherDataManager.getInstance().getWeather(new Observer<WeatherEntity>() {
             @Override
             public void onSubscribe(Disposable d) {
@@ -53,15 +68,5 @@ public class WeatherActivity extends BaseActivity {
                 LogUtils.i("weatherEntity", "onComplete");
             }
         }, 101010100);
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.weather_activity_weather;
-    }
-
-    @Override
-    public void initViews(Bundle savedInstanceState) {
-
     }
 }

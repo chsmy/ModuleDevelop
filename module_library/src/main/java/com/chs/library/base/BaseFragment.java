@@ -51,6 +51,7 @@ public abstract class BaseFragment extends Fragment {
         bind = ButterKnife.bind(this, view);
         finishCreateView(savedInstanceState);
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

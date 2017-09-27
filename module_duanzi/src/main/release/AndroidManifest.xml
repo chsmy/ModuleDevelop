@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+          package="com.chs.module_zhihu"
+    >
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        >
+        <activity android:name=".DuanZiHuActivity"/>
+        <activity android:name=".DetailActivity"/>
+    </application>
+
+</manifest>

@@ -9,9 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/module_duanzi" />
             <option value="$PROJECT_DIR$/module_library" />
             <option value="$PROJECT_DIR$/module_weather" />
-            <option value="$PROJECT_DIR$/module_zhihu" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

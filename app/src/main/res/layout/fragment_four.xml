@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/default_bg"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/mine_header_bg"
+        android:orientation="vertical">
+
+        <com.chs.library.widget.RoundImageView
+            android:id="@+id/iv_head"
+            android:layout_marginTop="50dp"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/ic_launcher_round"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/tv_show_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:text="名字"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_my_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_my_message"
+            style="@style/image_icon"
+            android:background="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tv_my_message"
+            style="@style/text_title"
+            android:layout_toRightOf="@id/iv_my_message"
+            android:text="第一条"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_project_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_project_message"
+            style="@style/image_icon"
+            android:background="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tv_project_message"
+            style="@style/text_title"
+            android:layout_toRightOf="@id/iv_project_message"
+            android:text="第一条"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_feedback"
+            style="@style/image_icon"
+            android:background="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            style="@style/text_title"
+            android:layout_toRightOf="@id/iv_feedback"
+            android:text="第一条"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            style="@style/image_icon"
+            android:background="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tv_setting"
+            style="@style/text_title"
+            android:layout_toRightOf="@id/iv_setting"
+            android:text="第一条"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_about_us"
+            style="@style/image_icon"
+            android:background="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tv_about_us"
+            style="@style/text_title"
+            android:layout_toRightOf="@id/iv_about_us"
+            android:text="第一条"/>
+
+    </RelativeLayout>
+</LinearLayout>

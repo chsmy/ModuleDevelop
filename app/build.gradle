@@ -29,7 +29,7 @@ dependencies {
         compile project(':module_library')
     } else {
         compile project(':module_weather')
-        compile project(':module_zhihu')
+        compile project(':module_duanzi')
     }
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERDION}"
     annotationProcessor "com.alibaba:arouter-compiler:${A_ROUTER_COMPILER}"

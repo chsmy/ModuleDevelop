@@ -1,4 +1,4 @@
-package com.chs.library;
+package com.chs.module_zhihu;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

@@ -128,4 +128,11 @@
         <!--<attr name="indicator_animator" format="reference" />-->
         <!--<attr name="indicator_animator_reverse" format="reference" />-->
     </declare-styleable>
+
+    <!-- round imageview  add  by  ysq-->
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
 </resources>

@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_cdcdcd">#cdcdcd</color>
+    <color name="default_bg">#EFF3F6</color>
+    <color name="mine_header_bg">#3cafff</color>
 </resources>

@@ -8,4 +8,5 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="green">#62e710</color>
+    <color name="recycle_driver">#ECECEC</color>
 </resources>

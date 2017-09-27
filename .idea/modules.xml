@@ -4,9 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ModuleDevelop.iml" filepath="$PROJECT_DIR$/ModuleDevelop.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_duanzi/module_duanzi.iml" filepath="$PROJECT_DIR$/module_duanzi/module_duanzi.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_library/module_library.iml" filepath="$PROJECT_DIR$/module_library/module_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_weather/module_weather.iml" filepath="$PROJECT_DIR$/module_weather/module_weather.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_zhihu/module_zhihu.iml" filepath="$PROJECT_DIR$/module_zhihu/module_zhihu.iml" />
     </modules>
   </component>
 </project>

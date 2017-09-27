@@ -1,4 +1,4 @@
-package com.chs.weather;
+package com.chs.module_zhihu;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -12,6 +12,6 @@ public class ExampleInstrumentedTest {
 //        // Context of the app under test.
 //        Context appContext = InstrumentationRegistry.getTargetContext();
 //
-//        assertEquals("com.chs.weather.test", appContext.getPackageName());
+//        assertEquals("com.chs.module_zhihu.test", appContext.getPackageName());
 //    }
 }
