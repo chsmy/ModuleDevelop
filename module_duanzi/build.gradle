@@ -4,27 +4,29 @@ if (isDebug.toBoolean()) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'com.jakewharton.butterknife'
+
 android {
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILDTOOLS_VERSION
 
     defaultConfig {
-        // 作为library时不能有applicationId,只有作为一个独立应用时才能够如下设置
-        if (isDebug.toBoolean()) {
-            applicationId "com.chs.weather"
-        }
         minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
-        //所有资源必须以此 weather_ 开头，否则会报错
-        resourcePrefix "weather_"
+        // 作为library时不能有applicationId,只有作为一个独立应用时才能够如下设置
+        if (isDebug.toBoolean()) {
+            applicationId "com.chs.module_duanzi"
+        }
+        //所有资源必须以此 duanzi_ 开头，否则会报错
+        resourcePrefix "duanzi_"
         //用到ARouter中都要加下面的一段
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [ moduleName : project.getName() ]
             }
         }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
@@ -50,6 +52,12 @@ android {
 }
 
 dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
     compile project(':module_library')
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERDION}"
     annotationProcessor "com.alibaba:arouter-compiler:${A_ROUTER_COMPILER}"
