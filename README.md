@@ -1,6 +1,6 @@
 # ModuleDevelop
 Android组件化开发练习demo
-使用的api 豆瓣 魅族天气 banner使用腾讯http://qt.qq.com
+使用的api 豆瓣 魅族天气 内涵段子 banner使用腾讯http://qt.qq.com
 感谢项目中用到的开源api 如有侵权请联系删除
 
 使用的开源库

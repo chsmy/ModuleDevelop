@@ -1,1 +1,1 @@
-include ':app', ':module_library', ':module_weather', ':module_duanzi'
+include ':app', ':module_library', ':module_weather'
