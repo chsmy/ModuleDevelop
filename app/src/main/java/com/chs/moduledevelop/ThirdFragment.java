@@ -37,13 +37,13 @@ public class ThirdFragment extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.weather,R.id.zhihu})
+    @OnClick({R.id.weather,R.id.duanzi})
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.weather:
                 ARouter.getInstance().build("/weather/WeatherActivity").navigation();
                 break;
-            case R.id.zhihu:
+            case R.id.duanzi:
                 ARouter.getInstance().build("/duanzi/DuanZiActivity").navigation();
                 break;
         }

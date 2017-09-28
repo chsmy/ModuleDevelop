@@ -10,8 +10,9 @@
         android:background="@color/colorPrimary"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:gravity="center"
         >
         <TextView
             android:id="@+id/weather"
@@ -22,12 +23,12 @@
             android:text="天气模块"
             />
         <TextView
-            android:id="@+id/zhihu"
+            android:id="@+id/duanzi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableTop="@mipmap/ic_launcher"
             android:layout_marginLeft="@dimen/dp_30"
-            android:text="知乎模块"
+            android:text="新闻模块"
             />
     </LinearLayout>
 
