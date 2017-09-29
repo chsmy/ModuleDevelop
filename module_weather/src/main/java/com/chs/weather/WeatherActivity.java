@@ -43,7 +43,7 @@ public class WeatherActivity extends BaseActivity {
     @Override
     protected void loadData(boolean isShowLoading) {
         super.loadData(isShowLoading);
-        WeatherDataManager.getInstance().getWeather(new Observer<WeatherEntity>() {
+        new WeatherDataManager().getWeather(new Observer<WeatherEntity>() {
             @Override
             public void onSubscribe(Disposable d) {
 

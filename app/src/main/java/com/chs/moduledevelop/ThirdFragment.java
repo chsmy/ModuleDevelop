@@ -44,7 +44,7 @@ public class ThirdFragment extends BaseFragment {
                 ARouter.getInstance().build("/weather/WeatherActivity").navigation();
                 break;
             case R.id.duanzi:
-                ARouter.getInstance().build("/duanzi/DuanZiActivity").navigation();
+                ARouter.getInstance().build("/news/NewsActivity").navigation();
                 break;
         }
     }
