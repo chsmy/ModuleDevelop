@@ -26,4 +26,5 @@ adapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper
 轮播图 https://github.com/youth5201314/banner
 
 效果图：
+
 ![](https://github.com/chsmy/ModuleDevelop/blob/master/image/fff.gif)
